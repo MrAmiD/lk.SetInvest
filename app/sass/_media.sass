@@ -1,4 +1,7 @@
 @import "vars"
+=xxl-width($columnCount)
+  flex: 0 0 ((100%/18)*$columnCount)
+  max-width: ((100%/18)*$columnCount)
 
 /*==========  Desktop First  ==========*/
 
@@ -40,7 +43,40 @@
 
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px)
-  .container
-    width: 1170px
-    max-width: 100%
+  .col-xxl-1
+    +xxl-width(1)
+  .col-xxl-2
+    +xxl-width(2)
+  .col-xxl-3
+    +xxl-width(3)
+  .col-xxl-4
+    +xxl-width(4)
+  .col-xxl-5
+    +xxl-width(5)
+  .col-xxl-6
+    +xxl-width(6)
+  .col-xxl-7
+    +xxl-width(7)
+  .col-xxl-8
+    +xxl-width(8)
+  .col-xxl-9
+    +xxl-width(9)
+  .col-xxl-10
+    +xxl-width(10)
+  .col-xxl-11
+    +xxl-width(11)
+  .col-xxl-12
+    +xxl-width(12)
+  .col-xxl-13
+    +xxl-width(13)
+  .col-xxl-14
+    +xxl-width(14)
+  .col-xxl-15
+    +xxl-width(15)
+  .col-xxl-16
+    +xxl-width(16)
+  .col-xxl-17
+    +xxl-width(17)
+  .col-xxl-18
+    +xxl-width(18)
 

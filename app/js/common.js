@@ -1,18 +1,11 @@
 $(function() {
-    /*Меняем плейсхолдер колличество на кол-во*/
 
-    // $(window).scroll(function () {
-    //     var st = $(this).scrollTop(),
-    //         slowTxt = 20,
-    //         slowBg = 120; // чем больше, тем медленнее
-    //     $('.content-mainwin').css({
-    //         "transform" : "translate(0%, " + st/slowTxt + "%",
-    //         "opacity" : 1-st/400
-    //     });
-    //     $('.parallax-main .img-paralax').css({
-    //         "transform" : "translate(0%, -" + st/slowBg + "%"
-    //     });
-    // });
+    //setInvest start
+    $('select').styler({
+        selectSearch: true,
+    });
+    //setInvest end
+
 
     // ===== Scroll to Top ====
     $(window).scroll(function() {
