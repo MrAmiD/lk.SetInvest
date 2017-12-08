@@ -1,5 +1,71 @@
+function progressColor(){//закрашивает определённый процент прогрессбара шагов
+    $('.countSteps').html($('.stepsForms>.item').length);
+    $('.progressColor').css('width', 100/$('.stepsForms>.item').length*$('.stepNum').html() + '%');
+
+}
+
+function stepChange(stepNum) {//Изменение шага
+    if(stepNum <= $('.countSteps').html() && stepNum >= 1){
+        $('.stepNum').html(stepNum).trigger('change');
+    }
+}
+
 $(function() {
 
+    $.datetimepicker.setLocale('ru');
+    $('.date-p').datetimepicker({
+        i18n:{
+            de:{
+                months:[
+                    'Januar','Februar','März','April',
+                    'Mai','Juni','Juli','August',
+                    'September','Oktober','November','Dezember',
+                ],
+                dayOfWeek:[
+                    "So.", "Mo", "Di", "Mi",
+                    "Do", "Fr", "Sa.",
+                ]
+            }
+        },
+        timepicker:false,
+        format:'d.m.Y'
+    });
+    //
+
+    $('.js-single-i input[type=checkbox]').on('change', function() {
+        $('.js-single-i input[type=checkbox]').not(this).prop('checked', false);
+    });
+    $(".stepNum").on('change',function(){//при изменении шага, меняем закрашенную область
+        progressColor();
+        //скрываем/показываем кнопки
+        if($('.stepNum').html() == 1){
+            $('.js-step-back').hide();
+        } else if($('.stepNum').html() > 1){
+            $('.js-step-back').fadeIn();
+        } else{
+            $('.js-step-back').hide();
+        }
+
+        if($('.stepNum').html() == $('.countSteps').html()) {
+            $('.js-step-next').hide();
+            $('.js-saveData').fadeIn();
+        }
+        else{
+            $('.js-step-next').fadeIn();
+            $('.js-saveData').hide();
+        }
+
+        //скрываем/показываем формы
+        $('.stepsForms>.item').removeClass('active');
+        $('.stepsForms>.item:nth-child('+ $('.stepNum').html() +')').addClass('active');
+
+
+        $("html, body").animate({ scrollTop: $('.steps-b').offset().top - 120}, 600);
+        
+        //Изменение шага
+        //$('.stepNum').html(1).trigger('change');
+
+    });
     //setInvest start
     $('select').styler({
         selectSearch: true,
@@ -55,19 +121,21 @@ $(function() {
 
         //bugfix fixed menu 1-3 START
         $(window).scroll();
-        $(".slick-menu-top").css({ top: $(window).scrollTop()});
+        $(".slick-menu").css({ top: $(window).scrollTop()});
     });
     api.bind( "open:start", function() {
         $(window).scroll();
-
         //bugfix fixed menu 2
-        $(".slick-menu-top").css({ top: $(window).scrollTop() });
+        $(".slick-menu").css({ top: $(window).scrollTop() });
     });
-    api.bind( "close:finish", function( $panel ) {
+    api.bind( "open:before", function() {
+        $('#my-menu').css('top', $('.slick-menu').height());
+    });
+    api.bind( "close:finish", function() {
         $("#menu-btn").removeClass('is-active');
 
         //bugfix fixed menu 3 END
-        $(".slick-menu-top").css({ top: 0});
+        $(".slick-menu").css({ top: 0});
     });
 
 

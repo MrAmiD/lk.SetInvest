@@ -6,6 +6,15 @@
 /*==========  Desktop First  ==========*/
 
 /* Large Devices, Wide Screens */
+#my-header .logo-cont.logo-inner
+@media only screen and (max-width : 1850px)
+  #my-header
+    .logo-cont.logo-inner
+      justify-content: flex-start
+    .container-fluid
+      width: 1140px!important
+      min-width: 1140px!important
+
 @media only screen and (max-width : 1200px)
   /**/
 /* Medium Devices, Desktops */
@@ -43,6 +52,13 @@
 @media only screen and (min-width : 1200px)
   /**/
 @media only screen and (min-width : 1850px)
+  //my custom grid
+  .mym-cont
+    display: none!important
+  #menu-btn
+    display: none
+  .main-menu
+    display: block
   .container
     width: 1800px
     max-width: 100%
@@ -82,3 +98,40 @@
     +xxl-width(17)
   .col-xxl-18
     +xxl-width(18)
+
+  .offset-xxl-1
+    +m-offset-xxl(1)
+  .offset-xxl-2
+    +m-offset-xxl(2)
+  .offset-xxl-3
+    +m-offset-xxl(3)
+  .offset-xxl-4
+    +m-offset-xxl(4)
+  .offset-xxl-5
+    +m-offset-xxl(5)
+  .offset-xxl-6
+    +m-offset-xxl(6)
+  .offset-xxl-7
+    +m-offset-xxl(7)
+  .offset-xxl-8
+    +m-offset-xxl(8)
+  .offset-xxl-9
+    +m-offset-xxl(9)
+  .offset-xxl-10
+    +m-offset-xxl(10)
+  .offset-xxl-11
+    +m-offset-xxl(11)
+  .offset-xxl-12
+    +m-offset-xxl(12)
+  .offset-xxl-13
+    +m-offset-xxl(13)
+  .offset-xxl-14
+    +m-offset-xxl(14)
+  .offset-xxl-15
+    +m-offset-xxl(15)
+  .offset-xxl-16
+    +m-offset-xxl(16)
+  .offset-xxl-17
+    +m-offset-xxl(17)
+  .offset-xxl-18
+    +m-offset-xxl(18)
